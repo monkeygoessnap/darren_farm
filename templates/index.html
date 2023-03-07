@@ -8,10 +8,10 @@
     <br><br><br><br><br><br><br><br>
 
 
-    <button type="button" class="btn btn-info" onclick=getData();>
+    <!-- <button type="button" class="btn btn-info" onclick=getData();>
         Get Status
     </button>
-    <br><br>
+    <br><br> -->
 
     <div class="table-responsive">
         <table class="table table-bordered table-dark">
@@ -50,35 +50,30 @@
     // var base_url = 'http://localhost:3000/data';
     var base_url = 'http://localhost:5000/data';
 
-    function getData() {
-
-        fetch(base_url)
-            .then(response => response.json())
-            .then(data => { console.log(data); 
-                farm1.value = data.farm1;
-                farm2.value = data.farm2;
-                farm3.value = data.farm3;
-            })
-    }
-
-    // async function getData() {
-    //     while (true) {
-    //         await new Promise(r => setTimeout(r, 3000));
-    //         fetch(base_url)
-    //             .then(response => response.json())
-    //             .then(data => { console.log(data); 
-    //                 lighting.value = data.lighting;
-    //                 autowatering.value = data.autowatering;
-    //                 notifications.value = data.notifications;
-    //                 lightintensity.value = data.lightintensity;
-    //                 plantwater.value = data.plantwater;
-    //                 reservewater.value = data.reservewater;
-    //                 state.value = data.state;
-    //             })
-    //     }
+    // function getData() {
+    //     fetch(base_url)
+    //         .then(response => response.json())
+    //         .then(data => { console.log(data); 
+    //             farm1.value = data.farm1;
+    //             farm2.value = data.farm2;
+    //             farm3.value = data.farm3;
+    //         })
     // }
 
-    // getData();
+    async function getData() {
+        while (true) {
+            await new Promise(r => setTimeout(r, 2000));
+            fetch(base_url)
+                .then(response => response.json())
+                .then(data => { console.log(data); 
+                    farm1.value = data.farm1;
+                    farm2.value = data.farm2;
+                    farm3.value = data.farm3;
+                })
+        }
+    }
+
+    getData();
 
 </script>
 

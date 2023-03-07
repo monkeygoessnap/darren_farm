@@ -14,7 +14,7 @@ def index():
     """HOME PAGE"""
     return render_template("index.html")
 
-@app.rute("/data", methods=['GET', 'POST'])
+@app.route("/data", methods=['GET', 'POST'])
 def data():
     """DATA"""
 
