@@ -1,7 +1,9 @@
 from flask import Flask, redirect, render_template, request
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 status = {
     'farm1': None,
